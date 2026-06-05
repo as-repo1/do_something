@@ -13,6 +13,7 @@ Features a modern glassmorphic layout, adaptive custom themes, and full offline 
 ---
 
 ## 📸 Interface Preview & Design Aesthetics
+
 * **Glassmorphism Design**: Frosted borders, fine drop shadows, and modern typography (`Outfit` and `Fira Code` imported from Google Fonts).
 * **Multi-Theme Engine**: Swappable color schemes that instantly adapt to your aesthetic:
   * 🌌 **Nord**: Sleek Arctic frost and deep charcoal.
@@ -45,29 +46,8 @@ Features a modern glassmorphic layout, adaptive custom themes, and full offline 
 
 ## 🛠️ Repository Architecture
 
-The project maintains a unified layout for web assets and the native Android wrapper:
+**`/index.html`, `/main.css`, `/main.js`**: Core offline web application.
 
-```mermaid
-graph TD
-    Root[do_something Repository]
-    Root --> WebFiles[Web Application]
-    Root --> AndroidProject[android-app]
-    Root --> LocalAPK[Do_Something.apk]
-
-    WebFiles --> Index[index.html]
-    WebFiles --> CSS[main.css]
-    WebFiles --> JS[main.js]
-
-    AndroidProject --> Assets[app/src/main/assets/]
-    Index -.->|Synchronized copy| Assets
-    CSS -.->|Synchronized copy| Assets
-    JS -.->|Synchronized copy| Assets
-
-    AndroidProject --> MainScreen[ui/main/MainScreen.kt]
-    AndroidProject --> MainActivity[MainActivity.kt]
-```
-
-* **`/index.html`, `/main.css`, `/main.js`**: Core offline web application.
 * **`/android-app`**: Native Android Gradle project using Jetpack Compose and WebView.
 * **`/Do_Something.apk`**: Local compiled APK for direct, offline sideloading (git-ignored to protect repository size).
 * **`/.github/workflows/release.yml`**: GitHub Actions tag-release automation.
@@ -77,21 +57,27 @@ graph TD
 ## 🚀 How to Run Locally
 
 ### 1. Web Version
+
 Since it utilizes vanilla web technologies, you can open it directly:
+
 * Double-click `index.html` to run.
 * **Alternative (via Node.js)**:
   ```sh
   npx -y serve -l 3100 ./
   ```
+
   Then open `http://localhost:3100`
 
 ### 2. Android Version (Locally)
+
 If you want to compile the APK yourself, ensure you have the Android SDK setup and run:
+
 ```sh
 cd android-app
 chmod +x gradlew
 ./gradlew assembleDebug
 ```
+
 The compiled APK will be output to:
 `android-app/app/build/outputs/apk/debug/app-debug.apk`
 
@@ -100,10 +86,13 @@ The compiled APK will be output to:
 ## 📦 GitHub Release Automation & Sideloading
 
 ### Sideloading the Local APK
+
 We have provided a compiled **`Do_Something.apk`** in the root directory of this project for convenience. You can copy it to your phone and install it directly. Note that this file is configured in `.gitignore` so it will not bloat the GitHub repository history.
 
 ### Automatic Releases via GitHub Actions
+
 We've set up a fully automated release pipeline in `.github/workflows/release.yml`. Whenever you release a new version:
+
 1. Push a release tag starting with `v` (e.g. `git tag v1.0.0` followed by `git push origin v1.0.0`).
 2. GitHub Actions will trigger, spin up a secure Java 17 container, check out the code, and compile the Android project.
 3. The pipeline will automatically create a draft or release on GitHub and attach the compiled `app-debug.apk` directly to the release page.
@@ -111,6 +100,7 @@ We've set up a fully automated release pipeline in `.github/workflows/release.ym
 ---
 
 ## 🔒 Security & Optimization Guidelines
+
 * **No Secret Commits**: Gradle settings like `local.properties` and local directories (e.g. `.gradle/`, `/build`) are strictly ignored.
 * **Offline Independence**: The application doesn't call external backend APIs; all data is retained on the user's client device.
 * **Link Control**: The Android App intercepts external link navigation. If a task contains web links, clicking them opens the phone's native browser to protect the WebView sandbox context.
@@ -118,6 +108,9 @@ We've set up a fully automated release pipeline in `.github/workflows/release.ym
 ---
 
 ## 🤝 Contributing
+
 Contributions are always welcome! Feel free to open issues, submit pull requests, or suggest new themes.
 
 Give this repository a ⭐️ if you love the design!
+
+<style>#mermaid-1780667480745{font-family:sans-serif;font-size:16px;fill:#333;}#mermaid-1780667480745 .error-icon{fill:#552222;}#mermaid-1780667480745 .error-text{fill:#552222;stroke:#552222;}#mermaid-1780667480745 .edge-thickness-normal{stroke-width:2px;}#mermaid-1780667480745 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1780667480745 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1780667480745 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1780667480745 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1780667480745 .marker{fill:#333333;}#mermaid-1780667480745 .marker.cross{stroke:#333333;}#mermaid-1780667480745 svg{font-family:sans-serif;font-size:16px;}#mermaid-1780667480745 .label{font-family:sans-serif;color:#333;}#mermaid-1780667480745 .label text{fill:#333;}#mermaid-1780667480745 .node rect,#mermaid-1780667480745 .node circle,#mermaid-1780667480745 .node ellipse,#mermaid-1780667480745 .node polygon,#mermaid-1780667480745 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1780667480745 .node .label{text-align:center;}#mermaid-1780667480745 .node.clickable{cursor:pointer;}#mermaid-1780667480745 .arrowheadPath{fill:#333333;}#mermaid-1780667480745 .edgePath .path{stroke:#333333;stroke-width:1.5px;}#mermaid-1780667480745 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1780667480745 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-1780667480745 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-1780667480745 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1780667480745 .cluster text{fill:#333;}#mermaid-1780667480745 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:sans-serif;font-size:12px;background:hsl(80,100%,96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1780667480745:root{--mermaid-font-family:sans-serif;}#mermaid-1780667480745:root{--mermaid-alt-font-family:sans-serif;}#mermaid-1780667480745 flowchart{fill:apa;}</style>
