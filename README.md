@@ -159,9 +159,6 @@ We've set up a fully automated release pipeline in `.github/workflows/release.ym
 * **No Secret Commits**: Gradle settings like `local.properties` and local directories (e.g. `.gradle/`, `/build`) are strictly ignored.
 * **Offline Independence**: The application doesn't call external backend APIs; all data is retained on the user's client device.
 * **Link Control**: The Android App intercepts external link navigation. If a task contains web links, clicking them opens the phone's native browser to protect the WebView sandbox context.
-  <<<<<<< HEAD
-  #mermaid-1780667480745 .edgePath .path{stroke:#333333;stroke-width:1.5px;}#mermaid-1780667480745 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1780667480745 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-1780667480745 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-1780667480745 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1780667480745 .cluster text{fill:#333;}#mermaid-1780667480745 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:sans-serif;font-size:12px;background:hsl(80,100%,96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1780667480745:root{--mermaid-font-family:sans-serif;}#mermaid-1780667480745:root{--mermaid-alt-font-family:sans-serif;}#mermaid-1780667480745 flowchart{fill:apa;}`</style>`
-  =======
 
 ---
 
